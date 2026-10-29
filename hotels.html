@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featured Hotels & Luxury Resorts | BRAINIXTOURISM</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <i class="fa-solid fa-mountain-sun"></i>
+                <span>BRAINIX<span>TOURISM</span></span>
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#destinations" class="nav-link">Destinations</a>
+                <a href="hotels.html" class="nav-link active">Hotels</a>
+                <a href="index.html#decor" class="nav-link">Custom Decor</a>
+                <a href="index.html#booking" class="nav-link btn-nav">Book Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="hero-section" style="height: 45vh; background: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content" style="text-align: center; max-width: 100%;">
+            <span class="badge-tag">Curated Stays</span>
+            <h1>Our Featured Stays & Accommodations</h1>
+            <p>Select from luxury resorts, premium suites, and standard comfort hotels in Northern Pakistan.</p>
+        </div>
+    </section>
+
+    <!-- Categorized Hotels Section -->
+    <section class="section">
+        <div class="container">
+
+            <!-- Filter Controls Bar -->
+            <div style="background: var(--bg-light); padding: 20px; border-radius: var(--radius-lg); margin-bottom: 40px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; justify-content: space-between; border: 1px solid var(--border-color);">
+                <div style="display: flex; gap: 20px; flex-wrap: wrap; flex: 1;">
+                    <!-- Destination Filter Dropdown -->
+                    <div style="flex: 1; min-width: 200px;">
+                        <label for="filterDestination" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">
+                            <i class="fa-solid fa-location-dot" style="color: var(--primary-color);"></i> Filter by Destination
+                        </label>
+                        <select id="roomDecor" class="form-control" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; font-family: inherit;">
+                            <option value="None">None (Standard Stay)</option>
+                            <option value="Honeymoon Suite Setup">Honeymoon Suite Setup</option>
+                            <option value="Destination Wedding Setup">Destination Wedding Setup</option>
+                            <option value="Private Bonfire & BBQ Night">Private Bonfire & BBQ Night</option>
+                            <option value="Anniversary & Celebration">Anniversary & Celebration</option>
+                        </select>
+                    </div>
+
+                    <!-- Category Filter Dropdown -->
+                    <div style="flex: 1; min-width: 200px;">
+                        <label for="filterCategory" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">
+                            <i class="fa-solid fa-layer-group" style="color: var(--primary-color);"></i> Filter by Category Tier
+                        </label>
+                        <select id="filterCategory" onchange="filterHotels()" style="width: 100%; padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-family: inherit; background: white; outline: none;">
+                            <option value="all">All Categories</option>
+                            <option value="luxury">Luxury Tier</option>
+                            <option value="premium">Premium Tier</option>
+                            <option value="standard">Standard Tier</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 1: Luxury Tier -->
+            <div id="luxurySection" style="margin-bottom: 60px;">
+                <div style="border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; margin-bottom: 30px;">
+                    <h2 style="color: var(--primary-color); font-size: 1.8rem;">
+                        <i class="fa-solid fa-crown" style="color: #d4a373;"></i> Luxury Tier
+                    </h2>
+                    <p style="color: var(--text-muted);">5-Star world-class resorts with high-end amenities and stunning scenic views.</p>
+                </div>
+                <div class="hotels-grid" id="luxuryHotels">
+                    <!-- Loaded via JS -->
+                </div>
+            </div>
+
+            <!-- Category 2: Premium Tier -->
+            <div id="premiumSection" style="margin-bottom: 60px;">
+                <div style="border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; margin-bottom: 30px;">
+                    <h2 style="color: var(--primary-color); font-size: 1.8rem;">
+                        <i class="fa-solid fa-gem" style="color: var(--primary-color);"></i> Premium Tier
+                    </h2>
+                    <p style="color: var(--text-muted);">High-comfort boutique hotels, alpine glamping, and private chalets.</p>
+                </div>
+                <div class="hotels-grid" id="premiumHotels">
+                    <!-- Loaded via JS -->
+                </div>
+            </div>
+
+            <!-- Category 3: Standard Tier -->
+            <div id="standardSection" style="margin-bottom: 60px;">
+                <div style="border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; margin-bottom: 30px;">
+                    <h2 style="color: var(--primary-color); font-size: 1.8rem;">
+                        <i class="fa-solid fa-hotel" style="color: #6c757d;"></i> Standard Tier
+                    </h2>
+                    <p style="color: var(--text-muted);">Comfortable, clean, and cozy stays for budget-conscious family trips.</p>
+                </div>
+                <div class="hotels-grid" id="standardHotels">
+                    <!-- Loaded via JS -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="brand-logo">
+                    <i class="fa-solid fa-mountain-sun"></i>
+                    <span>BRAINIX<span>TOURISM</span></span>
+                </a>
+                <p>Pakistan's premier luxury travel portal for northern stays, destination management, and event execution.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#destinations">Destinations</a></li>
+                    <li><a href="hotels.html">Hotels</a></li>
+                    <li><a href="index.html#decor">Event Decor</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Support</h4>
+                <p><i class="fa-solid fa-phone"></i> +92 3234357362</p>
+                <p><i class="fa-solid fa-envelope"></i> bookings@BRAINIXTOURISM.pk</p>
+                <p><i class="fa-solid fa-location-dot"></i> Lahore , Pakistan</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; BRAINIXTOURISM Pakistan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/hotels.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Rooms & Details | NorthernHaven</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <i class="fa-solid fa-mountain-sun"></i>
+                <span>BRAINIX<span>TOURISM</span></span>
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#destinations" class="nav-link">Destinations</a>
+                <a href="hotels.html" class="nav-link active">Hotels</a>
+                <a href="index.html#decor" class="nav-link">Custom Decor</a>
+                <a href="index.html#booking" class="nav-link btn-nav">Book Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Dynamic Hotel Banner Header -->
+    <section class="hero-section" id="hotelHero" style="height: 40vh; background: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content" style="text-align: center; max-width: 100%;">
+            <span class="badge-tag" id="hotelCategoryTag">Hotel Details</span>
+            <h1 id="hotelTitle">Loading Hotel...</h1>
+            <p id="hotelSubtitle"><i class="fa-solid fa-location-dot"></i> Northern Pakistan</p>
+        </div>
+    </section>
+
+    <!-- Rooms List Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Select Your Room & Accommodations</h2>
+                <p>Choose from our available room options tailored for couples, families, and solo travelers</p>
+            </div>
+
+            <!-- Room Cards Container -->
+            <div id="roomsContainer" style="display: grid; gap: 30px;">
+                <!-- Dynamically generated room cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Room Selection Booking Modal -->
+    <div id="roomModal" class="modal">
+        <div class="modal-content" style="max-width: 550px;">
+            <div class="modal-header">
+                <h2>Confirm Room Booking</h2>
+                <button class="close-modal" onclick="closeRoomModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="quickRoomForm">
+                    <div class="form-group" style="margin-bottom: 12px;">
+                        <label>Selected Hotel</label>
+                        <input type="text" id="modalHotelName" readonly style="background: #e9ecef;">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 12px;">
+                        <label>Selected Room Type</label>
+                        <input type="text" id="modalRoomType" readonly style="background: #e9ecef;">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 12px;">
+                        <label>Full Name *</label>
+                        <input type="text" id="guestName" required placeholder="Your full name">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 12px;">
+                        <label>WhatsApp Number *</label>
+                        <input type="tel" id="guestPhone" required placeholder="+92 300 1234567">
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;">
+                        <div class="form-group">
+                            <label>Check-In Date *</label>
+                            <input type="date" id="roomCheckin" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Check-Out Date *</label>
+                            <input type="date" id="roomCheckout" required>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label>Custom Event / Decor</label>
+                        <select id="roomDecor">
+                            <option value="None">None (Standard Stay)</option>
+                            <option value="Honeymoon Suite Decor">Honeymoon Suite Decor</option>
+                            <option value="Destination Wedding Setup">Destination Wedding Setup</option>
+                            <option value="Private Bonfire & BBQ Night">Private Bonfire & BBQ Night</option>
+                            <option value="Anniversary & Celebration">Anniversary & Celebration</option>
+                            
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block" style="background-color: #25d366;">
+                        <i class="fa-brands fa-whatsapp"></i> Send Request via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="brand-logo">
+                    <i class="fa-solid fa-mountain-sun"></i>
+                    <span>NORTHERN<span>HAVEN</span></span>
+                </a>
+                <p>Pakistan's premier luxury travel portal for northern stays, destination management, and event execution.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#destinations">Destinations</a></li>
+                    <li><a href="hotels.html">Hotels</a></li>
+                    <li><a href="index.html#decor">Event Decor</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Support</h4>
+                <p><i class="fa-solid fa-phone"></i> +92 3234357362</p>
+                <p><i class="fa-solid fa-envelope"></i> bookings@brainixtourism.pk</p>
+                <p><i class="fa-solid fa-location-dot"></i> Lahore, Pakistan</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; BRAINIXTOURISM Pakistan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/room-details.js"></script>
+</body>
+</html>
